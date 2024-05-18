@@ -53,7 +53,6 @@ class PhotoDetailsFragment : BaseFragment<PhotoDetailsFragmentBinding>() {
 
         setupViews()
         initObservations()
-
         viewModel.initPhotoModel(photo)
     }
 
@@ -79,6 +78,7 @@ class PhotoDetailsFragment : BaseFragment<PhotoDetailsFragmentBinding>() {
     }
 
     private fun initObservations() {
+        //allow hardware is not allowed in the current version of coil
         viewModel.photoModelLiveData.observe(viewLifecycleOwner) { photo ->
             bi.photoView.load(photo.urls.full){
                 allowHardware(false)
